@@ -36,7 +36,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2023.05"
+version = "2023.11"
 
 project {
 
@@ -295,7 +295,7 @@ object IntegrationBuild : BuildType({
             toolPath = "%teamcity.tool.NuGet.CommandLine.6.1.0%"
             packages = "**/*.nupkg"
             serverUrl = "%teamcity.nuget.feed.httpAuth.OnionArchitectureDotnet7ContainerApps.Onion_Architecture_Container_Apps.v3%"
-            apiKey = "%teamcity.nuget.feed.api.key%"
+            apiKey = "credentialsJSON:c15b8463-b613-497d-b979-349bbed40a50"
         }
     }
 
@@ -336,7 +336,7 @@ object Prod : BuildType({
             param("octopus_project_name", "%OctoProject%")
             param("octopus_deploymenttimeout", "00:30:00")
             param("octopus_deployto", "Prod")
-            param("secure:octopus_apikey", "%OctoApiKey%")
+            param("secure:octopus_apikey", "credentialsJSON:97fa1a01-e262-483b-968a-ac5301d26321")
             param("octopus_releasenumber", "%build.number%")
         }
     }
@@ -371,7 +371,7 @@ object Tdd : BuildType({
         step {
             name = "Create and Deploy Release"
             type = "octopus.create.release"
-            param("secure:octopus_apikey", "%OctoApiKey%")
+            param("secure:octopus_apikey", "credentialsJSON:97fa1a01-e262-483b-968a-ac5301d26321")
             param("octopus_releasenumber", "%build.number%")
             param("octopus_additionalcommandlinearguments", "--variable=ResourceGroupName:%TDD-Resource-Group%-%build.number% --variable=container_app_name:%TDD-App-Name%")
             param("octopus_space_name", "%OctoSpaceName%")
@@ -489,7 +489,7 @@ object Uat : BuildType({
             param("octopus_project_name", "%OctoProject%")
             param("octopus_deploymenttimeout", "00:30:00")
             param("octopus_deployto", "UAT")
-            param("secure:octopus_apikey", "%OctoApiKey%")
+            param("secure:octopus_apikey", "credentialsJSON:97fa1a01-e262-483b-968a-ac5301d26321")
             param("octopus_releasenumber", "%build.number%")
         }
     }
