@@ -19,10 +19,10 @@ steps:
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'tfMPN'
-    subscriptionId: 'c61decc5-a544-4e44-8ae1-fdfa3045cf92'
+    subscriptionId: '2ee2d65e-8a7e-452c-b661-e1891ec4aca9'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'tf-Container-App-RG'
-    location: 'South Central US'
+    resourceGroupName: 'rg-ramesh-nw-dev'
+    location: 'East US'
     templateLocation: 'Linked artifact'
     csmFile: 'containerApp-azuredeploy.json'
     overrideParameters: >-
